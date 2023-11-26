@@ -1,16 +1,14 @@
 # docjumper README
 
-Добавляет удобную команду позволяющую быстро переключится на текстовый документ (например readme)
+Добавляет удобную команду позволяющую быстро переключится на выбранный текстовый документ (например readme)
 
 ## Features
 
-Расширение, добавляющее две новые комманды: Set Document и Show Set Document.
+Добавляет две новые комманды: Set Document и Show Set Document.
 
 Set Document: Запоминает текстовый документ открытый в активном редакторе.
 
 Show Set Document: Заменяет текстовый документ, открытый в активном редакторе, на ранее запомненый и запоминает открытый.
-
-For example if there is an image subfolder under your extension project workspace:
 
 ## Known problems
 

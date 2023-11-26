@@ -11,13 +11,9 @@ export function activate(context: vscode.ExtensionContext) {
 	let setDocument: vscode.TextDocument | undefined;
 	// TODO: По умолчанию присвоить к "README" в открытой папке
 
-	let workingDirectory = vscode.workspace.workspaceFolders;
+	let workingDirectories: any;
 
 	let workDirPath: string | undefined = undefined;
-
-	if (workingDirectory !== undefined) {
-		workDirPath = workingDirectory[0].uri.path;
-	}
 
 	// Запомнить выбранный документ
 	// TODO: Добавить горячие клавиши для этих команд
@@ -28,6 +24,13 @@ export function activate(context: vscode.ExtensionContext) {
 		if (openTextEditor === undefined) {
 			vscode.window.showErrorMessage("You did not open a text editor!");
 			return;
+		}
+
+		if (workingDirectories === undefined) {
+			workingDirectories = vscode.workspace.workspaceFolders;
+			if (workingDirectories !== undefined) {
+				workDirPath = workingDirectories[0].uri.path;
+			}
 		}
 
 		setDocument = openTextEditor.document;
