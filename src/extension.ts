@@ -9,6 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "docjumper" is now active!');
 
 	let setDocument: vscode.TextDocument | undefined;
+	// TODO: По умолчанию присвоить к "README" в открытой папке
 
 	let workingDirectory = vscode.workspace.workspaceFolders;
 
@@ -19,6 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	// Запомнить выбранный документ
+	// TODO: Добавить горячие клавиши для этих команд
 	let disposable = vscode.commands.registerCommand('docjumper.setDocument', () => {
 
 		let openTextEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
