@@ -11,14 +11,16 @@ export function activate(context: vscode.ExtensionContext) {
 	let setDocument: vscode.TextDocument | undefined = undefined;
 	// TODO: По умолчанию присвоить к "docs\README.md" в открытой папке
 
-
 	let workDirPath: string | undefined = undefined;
+	// TODO: Перенести присвоение дефолтных значений workDirPath и setDocument в отдельную функцию
+	// TODO: Выполнять эту функцию при каждой смене workspace'a с помощью workspace.onDidChangeWorkspaceFolder
 
 	if (vscode.workspace.workspaceFolders !== undefined) {
 
 		workDirPath = vscode.workspace.workspaceFolders[0].uri.path;
 
 		// Ищем "docs\README.md"
+		// TODO: Сделать файл по умолчанию настраиваемым
 		vscode.workspace.openTextDocument(workDirPath + "\\docs\\README.md").then(
 			(readmeDoc) => {
 				// Нашли
