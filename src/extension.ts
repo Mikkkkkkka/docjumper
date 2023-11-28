@@ -5,43 +5,39 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	console.log('Congratulations, your extension "docjumper" is now active!');
+	console.log('DocJumper is active!');
 
-	let configParameters = {
-		defaultDocument: "\\docs\\README.md",
-		changeSetDocumentOnShowDocumentCommand: true
-	};
-	// TODO: Сделать эти параметры настраиваемыми
-
+	const configParameters = vscode.workspace.getConfiguration('docjumper');
 
 	let setDocument: vscode.TextDocument | undefined = undefined;
 
 	let workDirPath: string | undefined = undefined;
 
 	// TODO: Выполнять эту функцию при каждой смене workspace'a с помощью workspace.onDidChangeWorkspaceFolder
-	function trySetDefaultDocument(): void {
+	function trySetDefaultSetDocument(): void {
 
-		if (vscode.workspace.workspaceFolders === undefined) {
-			return;
-		}
+		if (vscode.workspace.workspaceFolders === undefined) { return; }
 
 		workDirPath = vscode.workspace.workspaceFolders[0].uri.path;
 
-		// Ищем "defaultDocument"
-		vscode.workspace.openTextDocument(workDirPath + configParameters.defaultDocument).then(
-			(readmeDoc) => {
+		// Ищем "defaultSetDocument"
+		vscode.workspace.openTextDocument(workDirPath + configParameters.defaultSetDocument).then(
+			(defaultDoc) => {
 				// Нашли
-				setDocument = readmeDoc;
-				vscode.window.showInformationMessage('JumpDoc set to "' + configParameters.defaultDocument + '" by default.');
+				console.log("TextDoc promise resolved");
+				setDocument = defaultDoc;
+				vscode.window.showInformationMessage('JumpDoc set to "' + configParameters.defaultSetDocument + '" by default.');
+			},
+			() => {
+				if (setDocument === undefined) {
+					vscode.window.showInformationMessage("Cannot find default document");
+				}
 			}
+			// TODO: Искать по названию файла, если не получилось найти по пути
 		);
-
-		if (setDocument === undefined) {
-			vscode.window.showInformationMessage("Cannot find default document");
-		}
 	}
 
-	trySetDefaultDocument();
+	trySetDefaultSetDocument();
 
 	// Запомнить выбранный документ
 	// TODO: Добавить горячие клавиши для этих команд
@@ -64,10 +60,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	});
 
-	let disposable2 = vscode.commands.registerCommand('docjumper.resetDocument', () => {
-
-		trySetDefaultDocument();
-	});
+	// let disposable2 = vscode.commands.registerCommand('docjumper.resetDocument', () => {
+	// 	trySetDefaultSetDocument();
+	// });
 
 	// Отобразить запомненный документ
 	let disposable3 = vscode.commands.registerCommand('docjumper.showDocument', () => {
@@ -90,7 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	context.subscriptions.push(disposable1, disposable2, disposable3);
+	context.subscriptions.push(disposable1, disposable3);
 }
 
 // This method is called when your extension is deactivated

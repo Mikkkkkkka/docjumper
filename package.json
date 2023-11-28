@@ -9,19 +9,41 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "DocJumper",
+      "properties": {
+        "docjumper.defaultSetDocument": {
+          "type": "string",
+          "default": "\\docs\\README.md",
+          "description": "The document that is set by default"
+        },
+        "docjumper.changeSetDocumentOnShowDocumentCommand": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set active document before Show Set Document command."
+        }
+      }
+    },
     "commands": [
       {
-        "command": "docjumper.setDocument",
         "category": "DocJumper",
+        "command": "docjumper.setDocument",
         "title": "Set Document"
       },
       {
-        "command": "docjumper.showDocument",
         "category": "DocJumper",
+        "command": "docjumper.showDocument",
         "title": "Show Set Document"
+      },
+      {
+        "category": "DocJumper",
+        "command": "docjumper.resetDocument",
+        "title": "Reset Document to default"
       }
     ]
   },
