@@ -12,7 +12,7 @@ Telegram: [@srryizonedout](https://t.me/srryizonedout/)
 
 ## Features
 
-Добавляет три новые команды: Set Document и Show Set Document.
+Добавляет три новые команды: Set Document, Reset Document и Show Set Document.
 
 ### Set Document:
 
