@@ -52,11 +52,15 @@
     "keybindings": [
       {
         "command": "docjumper.showDocument",
-        "key": "alt+q"
+        "key": "alt+q",
+        "mac": "alt+q",
+        "linux": "alt+q"
       },
       {
         "command": "docjumper.setDocument",
-        "key": "alt+shift+q"
+        "key": "alt+shift+q",
+        "mac": "alt+shift+q",
+        "linux": "alt+shift+q"
       }
     ]
   },

@@ -24,11 +24,23 @@ export function activate(context: vscode.ExtensionContext) {
 				// Нашли
 				setDocument = defaultDoc;
 				vscode.window.showInformationMessage('DocJumper is set to "' + vscode.workspace.getConfiguration('docjumper')["defaultSetDocument"] + '" by default.');
+			}
+		);
+
+		if (setDocument !== undefined) {
+			return;
+		}
+
+		// Ищем по названию в корне
+		vscode.workspace.openTextDocument(workDirPath + "\\" + vscode.workspace.getConfiguration('docjumper')["defaultSetDocument"].split("\\").at(-1)).then(
+			(defaultDoc) => {
+				// Нашли
+				setDocument = defaultDoc;
+				vscode.window.showInformationMessage('DocJumper is set to "' + defaultDoc.fileName.split("\\").at(-1) + '" due to name similarity.');
 			},
 			() => {
-				vscode.window.showInformationMessage("Cannot find " + vscode.workspace.getConfiguration('docjumper')["defaultSetDocument"]);
+				vscode.window.showInformationMessage("Cannot set DocJumper by default");
 			}
-			// TODO: Искать по названию файла, если не получилось найти по пути
 		);
 	}
 
