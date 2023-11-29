@@ -21,11 +21,13 @@
         "docjumper.defaultSetDocument": {
           "type": "string",
           "default": "\\docs\\README.md",
+          "scope": "window",
           "description": "The document that is set by default"
         },
         "docjumper.changeSetDocumentOnShowDocumentCommand": {
           "type": "boolean",
           "default": false,
+          "scope": "window",
           "description": "Set active document before Show Set Document command."
         }
       }
