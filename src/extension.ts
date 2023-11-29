@@ -26,12 +26,10 @@ export function activate(context: vscode.ExtensionContext) {
 				// Нашли
 				console.log("TextDoc promise resolved");
 				setDocument = defaultDoc;
-				vscode.window.showInformationMessage('JumpDoc set to "' + configParameters.defaultSetDocument + '" by default.');
+				vscode.window.showInformationMessage('DocJumper is set to "' + configParameters.defaultSetDocument + '" by default.');
 			},
 			() => {
-				if (setDocument === undefined) {
-					vscode.window.showInformationMessage("Cannot find default document");
-				}
+				vscode.window.showInformationMessage("Cannot find default document");
 			}
 			// TODO: Искать по названию файла, если не получилось найти по пути
 		);
@@ -40,7 +38,6 @@ export function activate(context: vscode.ExtensionContext) {
 	trySetDefaultSetDocument();
 
 	// Запомнить выбранный документ
-	// TODO: Добавить горячие клавиши для этих команд
 	let disposable1 = vscode.commands.registerCommand('docjumper.setDocument', () => {
 
 		let openTextEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
@@ -60,9 +57,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	});
 
-	// let disposable2 = vscode.commands.registerCommand('docjumper.resetDocument', () => {
-	// 	trySetDefaultSetDocument();
-	// });
+	let disposable2 = vscode.commands.registerCommand('docjumper.resetDocument', () => {
+		trySetDefaultSetDocument();
+	});
 
 	// Отобразить запомненный документ
 	let disposable3 = vscode.commands.registerCommand('docjumper.showDocument', () => {
@@ -85,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	context.subscriptions.push(disposable1, disposable3);
+	context.subscriptions.push(disposable1, disposable2, disposable3);
 }
 
 // This method is called when your extension is deactivated

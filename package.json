@@ -24,7 +24,7 @@
         },
         "docjumper.changeSetDocumentOnShowDocumentCommand": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Set active document before Show Set Document command."
         }
       }
@@ -44,6 +44,16 @@
         "category": "DocJumper",
         "command": "docjumper.resetDocument",
         "title": "Reset Document to default"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "docjumper.showDocument",
+        "key": "alt+`"
+      },
+      {
+        "command": "docjumper.setDocument",
+        "key": "alt+`+q"
       }
     ]
   },
