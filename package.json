@@ -3,6 +3,7 @@
   "displayName": "DocJumper",
   "description": "",
   "version": "0.1.0",
+  "repository": "https://github.com/Mikkkkkkka/docjumper",
   "engines": {
     "vscode": "^1.84.0"
   },
