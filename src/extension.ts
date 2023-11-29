@@ -8,6 +8,7 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('DocJumper is active!');
 
 	const configParameters = vscode.workspace.getConfiguration('docjumper');
+	let defDoc: string = configParameters["defaultSetDocument"];
 
 	let setDocument: vscode.TextDocument | undefined = undefined;
 
@@ -21,11 +22,11 @@ export function activate(context: vscode.ExtensionContext) {
 		workDirPath = vscode.workspace.workspaceFolders[0].uri.path;
 
 		// Ищем "defaultSetDocument"
-		vscode.workspace.openTextDocument(workDirPath + configParameters.defaultSetDocument).then(
+		vscode.workspace.openTextDocument(workDirPath + configParameters["defaultSetDocument"]).then(
 			(defaultDoc) => {
 				// Нашли
 				setDocument = defaultDoc;
-				vscode.window.showInformationMessage('DocJumper is set to "' + configParameters.defaultSetDocument + '" by default.');
+				vscode.window.showInformationMessage('DocJumper is set to "' + configParameters["defaultSetDocument"] + '" by default.');
 			},
 			() => {
 				vscode.window.showInformationMessage("Cannot find default document");
@@ -70,7 +71,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		let tempDocument: vscode.TextDocument | undefined = undefined;
 
-		if (configParameters.changeSetDocumentOnShowDocumentCommand) {
+		if (configParameters["changeSetDocumentOnShowDocumentCommand"]) {
 			tempDocument = vscode.window.activeTextEditor?.document;
 		}
 

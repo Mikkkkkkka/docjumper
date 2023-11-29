@@ -25,7 +25,7 @@
         },
         "docjumper.changeSetDocumentOnShowDocumentCommand": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Set active document before Show Set Document command."
         }
       }
