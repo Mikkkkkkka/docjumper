@@ -50,3 +50,7 @@ Telegram: [@srryizonedout](https://t.me/srryizonedout/)
 ### 0.1.0
 
 От расширения есть смысл!
+
+### 0.1.1
+
+Исправлены некоторые ошибки
