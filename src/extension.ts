@@ -24,7 +24,6 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.workspace.openTextDocument(workDirPath + configParameters.defaultSetDocument).then(
 			(defaultDoc) => {
 				// Нашли
-				console.log("TextDoc promise resolved");
 				setDocument = defaultDoc;
 				vscode.window.showInformationMessage('DocJumper is set to "' + configParameters.defaultSetDocument + '" by default.');
 			},
