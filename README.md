@@ -18,13 +18,13 @@ Telegram: [@srryizonedout](https://t.me/srryizonedout/)
 
 Запоминает текстовый документ открытый в активном редакторе.
 
-*Default shortcut: "Alt+`+q"*
+*Default shortcut: "Alt+Shift+Q"*
 
 ### Show Set Document:
 
     Открывает запомненный документ в соседней вкладке текстового редактора.
     По умолчанию запоминает \docs\README.md в открытой рабочей папке, пользователь может настроить путь документа запоминаемого по умолчанию.
-*Default shortcut: "Alt+`"*
+*Default shortcut: "Alt+Q"*
 
 ### Reset Document:
 
