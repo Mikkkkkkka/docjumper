@@ -12,7 +12,7 @@ Telegram: [@srryizonedout](https://t.me/srryizonedout/)
 
 ## Features
 
-Добавляет три новые команды: Set Document и Show Set Document.
+Добавляет три новые команды: Set Document, Reset Document и Show Set Document.
 
 ### Set Document:
 
@@ -22,8 +22,8 @@ Telegram: [@srryizonedout](https://t.me/srryizonedout/)
 
 ### Show Set Document:
 
-    Открывает запомненный документ в соседней вкладке текстового редактора.
-    По умолчанию запоминает \docs\README.md в открытой рабочей папке, пользователь может настроить путь документа запоминаемого по умолчанию.
+Открывает запомненный документ в соседней вкладке текстового редактора.
+По умолчанию запоминает \docs\README.md в открытой рабочей папке, пользователь может настроить путь документа запоминаемого по умолчанию.
     
 *Default shortcut: "Alt+Q"*
 
